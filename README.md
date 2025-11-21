@@ -129,16 +129,16 @@ pip install -r requirements.txt
 ### 3. Ejecutar el Notebook Principal
 El análisis completo y la limpieza de datos se encuentran en el archivo main.ipynb dentro de la carpeta src/.
 
-####A. Iniciar Jupyter Notebook
+#### A. Iniciar Jupyter Notebook
 Desde la carpeta raíz de tu proyecto, inicia el servidor de Jupyter:
 
 ``bash
 jupyter notebook
 
-####B. Abrir el Archivo
+#### B. Abrir el Archivo
 Tu navegador web se abrirá automáticamente en la interfaz de Jupyter. Navega a la carpeta src/ y haz clic en el archivo main.ipynb para comenzar el análisis.
 
-###4. Finalizar el Entorno
+### 4. Finalizar el Entorno
 Cuando termines de trabajar, puedes desactivar el entorno virtual ejecutando:
 
 ``bash
