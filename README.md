@@ -62,6 +62,11 @@ attack_detected vs. failed_logins (a través de Box Plot o Estadísticas Descrip
 - **Detalle:** Las sesiones con ataques (attack_detected = 1) no solo tienen una mediana de fallos similar a las sesiones limpias, sino que muestran una mayor variabilidad y una fuerte presencia de outliers (hasta 13 intentos), mientras que las sesiones limpias rara vez superan los 7.
 - **Conclusión:** El número de intentos fallidos es un predictor funcional del ataque si se relaciona con el tiempo de las sesiones y dependiendo el comportamiento de cada usuario (probablemente fuerza bruta o relleno de credenciales). El modelo de detección debe configurarse con un umbral estricto (ej. $> 7$ fallos) para activar la alerta de ataque.
 
+4. **Encriptación Fuerte (AES) y la Frecuencia de AtaqueComparación:**  encryption_used vs. attack_detected.
+- **Insight Clave:** Los ataques están significativamente presentes en conexiones que utilizan el estándar de encriptación AES (fuerte y moderno), lo que sugiere que los atacantes están apuntando a sesiones de alto valor o que han encontrado formas de evadir la detección a pesar de la encriptación.
+- **Detalle:** Aunque DES es un estándar más antiguo y débil, AES (el más robusto) no disuade a los atacantes. Se encontró un volumen sustancial de ataques en sesiones encriptadas con AES, y la diferencia con DES podría no ser tan grande como se esperaría.
+- **Conclusión:** La fortaleza de la encriptación no debe ser un factor de confianza para la seguridad. Las reglas de detección deben ser igualmente estrictas para el tráfico encriptado con AES, asumiendo que el ataque puede ocurrir una vez que la sesión está establecida.
+
 ---
 ## Autores
   
