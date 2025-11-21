@@ -8,6 +8,23 @@ El propósito es comprender la estructura de los datos e **identificar patrones,
 El análisis se desarrolló en **Python** (utilizando librerías estándar como **Pandas**, **NumPy**, **Matplotlib** y **Seaborn**), dentro de un **Jupyter Notebook**, con un enfoque académico y de aprendizaje.
 
 ---
+## Autores
+  
+- **Julian David Rodríguez Ramírez**
+- **Sara Gabriela Chisaba Cárdenas**
+- **Alejandra Cortes Murillo**
+- **Juan Angel Triana Olarte**
+
+---
+## Roles
+
+- **Alejandra:** Carga e inspección inicial de los datos, Manejo de datos faltantes, Tratamiento de valores inconsistentes en texto y duplicados
+- **Juan:** Identificación de outliers, Filtrado y condiciones en Pandas
+- **Gabriela:** Creación de variables, Agrupación con groupby
+- **Julian:** Visualizaciones, Archivo Readme
+---
+
+---
 ## Objetivos
 
 ### Objetivo General
@@ -39,6 +56,134 @@ Estos patrones deben aportar **correlación significativa** y **capacidad discri
 
 * **Visualización Bivariada Comparativa:** Diseñar y generar visualizaciones analíticas comparativas (Boxplots, Gráficos de Densidad) para contrastar las distribuciones de las variables predictivas clave (relacionadas con el volumen de datos, la duración y la frecuencia de acciones) en función del estado binario de la variable objetivo (tráfico normal vs. tráfico malicioso).
 * **Exploración de la Discriminalidad:** Utilizar el contraste visual para explorar la existencia de patrones distintivos o umbrales operativos que puedan ser postulado como indicadores potenciales y tempranos de actividad anómala o intrusión dentro de la infraestructura de red.
+
+---
+### Explicación de la estructura y diccionario de la base de datos
+## **Variables categóricas:**
+1.	**Encryption_used:**
+Indica el tipo de encriptación aplicado en la conexión. Sus categorías son:
+-	AES: Estándar de cifrado avanzado, fuerte y ampliamente utilizado.
+-	DES: Estándar antiguo de cifrado de datos.
+-	Ninguna encriptación: No se usó ningún método de encriptación.
+2.	**Protocol_type:**
+Representa el protocolo utilizado en la comunicación:
+-   TCP (Protocolo de Control de Transmisión).
+-   UDP (Protocolo de Datagramas del Usuario).
+-   ICMP (Protocolo de Mensajes de Control de Internet, usado en diagnósticos).
+3. **Browser_type:** Tipo de navegador utilizado por el usuario.
+4.	**Unusual_time_access:** Con registro binario que indica si inicio sesión fuera del horario normal.
+5. **Attack_detected:** Variable con clasificación binaria que determina si recibió un ataque o no.
+### **Variables númericas:**
+-	**Asociadas al tráfico de red:**
+ 6.	**Network_packet_size:** Tamaño de paquetes de bytes que oscila entre 64 y 1500 bytes.
+-	**Asociadas al comportamiento del usuario:**
+ 7.	**Login_attempts:** Intentos de inicio de sesión típicos de los usuarios
+ 8.	**Session_duration:** Tiempo de sesión iniciada.
+ 9.	**Failed_logins:** Número de inicios de sesión fallidos.
+ 10.	**Ip_reputation_score:** Mide y clasifica la confiabilidad de la dirección IP.
+### **Otras**
+11. **Session_id:** Número de ID de la sesión del usuario.
+### **Nuevas variables**
+12. **Minutos_sesion:** Cantidad de minutos de sesión iniciada relacionado con **Sesion_duration**.
+13. **accesos_fallidos:** Mapeo especial creado a partir del **login_attempts**.
+14. **paquetes_bytes:** Mapeo especial creado a partir del **network_packet_size**.
+
+--
+## Ejecución del Proyecto y activación del entorno
+
+Para trabajar con este proyecto, es necesario configurar un entorno virtual de Python e instalar las dependencias requeridas.
+
+### 1. Requisitos Previos
+
+Asegúrate de tener instalado lo siguiente en tu sistema (instalar requirements.txt):
+
+* **Python 3.8+**
+* **pip** (Administrador de paquetes de Python)
+* **Git** (Opcional, si clonas el repositorio)
+
+---
+
+### 2. Configuración del Entorno
+
+Sigue estos pasos para crear y activar un entorno virtual. Esto aísla las dependencias del proyecto de tu instalación principal de Python.
+
+#### A. Crear y Activar el Entorno
+
+Abre tu terminal (Git Bash, PowerShell o CMD) y ejecuta:
+
+| Sistema Operativo | Comando de Creación | Comando de Activación |
+| :--- | :--- | :--- |
+| **Windows** | `python -m venv venv` | `.\venv\Scripts\activate` |
+| **macOS/Linux** | `python3 -m venv venv` | `source venv/bin/activate` |
+
+*(El prefijo `(venv)` aparecerá en tu terminal, indicando que el entorno está activo.)*
+
+#### B. Instalar Dependencias
+
+Una vez activado el entorno, instala todas las librerías necesarias (Pandas, Matplotlib, Seaborn, Jupyter, etc.) utilizando el archivo `requirements.txt`.
+
+```bash
+pip install -r requirements.txt
+
+¡Claro! Aquí tienes el código Markdown para las instrucciones de tu archivo README.md. Estas instrucciones guiarán a cualquier usuario sobre cómo configurar el entorno y ejecutar el notebook principal.
+
+He incluido pasos para configurar un entorno virtual (recomendado) y ejecutar Jupyter.
+
+Markdown
+
+## 🚀 Ejecución y Análisis del Proyecto
+
+Para trabajar con este proyecto, es necesario configurar un entorno virtual de Python e instalar las dependencias requeridas.
+
+### 1. Requisitos Previos
+
+Asegúrate de tener instalado lo siguiente en tu sistema:
+
+* **Python 3.8+**
+* **pip** (Administrador de paquetes de Python)
+* **Git** (Opcional, si clonas el repositorio)
+
+---
+
+### 2. Configuración del Entorno
+
+Sigue estos pasos para crear y activar un entorno virtual. Esto aísla las dependencias del proyecto de tu instalación principal de Python.
+
+#### A. Crear y Activar el Entorno
+
+Abre tu terminal (Git Bash, PowerShell o CMD) y ejecuta:
+
+| Sistema Operativo | Comando de Creación | Comando de Activación |
+| :--- | :--- | :--- |
+| **Windows** | `python -m venv venv` | `.\venv\Scripts\activate` |
+| **macOS/Linux** | `python3 -m venv venv` | `source venv/bin/activate` |
+
+*(El prefijo `(venv)` aparecerá en tu terminal, indicando que el entorno está activo.)*
+
+#### B. Instalar Dependencias
+
+Una vez activado el entorno, instala todas las librerías necesarias (Pandas, Matplotlib, Seaborn, Jupyter, etc.) utilizando el archivo `requirements.txt` (asumo que tienes uno en la raíz del proyecto).
+
+```bash
+pip install -r requirements.txt
+
+### 3. Ejecutar el Notebook Principal
+El análisis completo y la limpieza de datos se encuentran en el archivo main.ipynb dentro de la carpeta src/.
+
+####A. Iniciar Jupyter Notebook
+Desde la carpeta raíz de tu proyecto, inicia el servidor de Jupyter:
+
+```bash
+jupyter notebook
+
+####B. Abrir el Archivo
+Tu navegador web se abrirá automáticamente en la interfaz de Jupyter. Navega a la carpeta src/ y haz clic en el archivo main.ipynb para comenzar el análisis.
+
+###4. Finalizar el Entorno
+Cuando termines de trabajar, puedes desactivar el entorno virtual ejecutando:
+
+```bash
+deactivate
 
 ---
 ### **Conclusiones**
@@ -74,45 +219,6 @@ attack_detected vs. failed_logins (a través de Box Plot o Estadísticas Descrip
 - **Detalle:** Aunque las sesiones atacadas pueden mostrar una ligera tendencia hacia puntuaciones de reputación más bajas (IPs conocidas como riesgosas), existe una distribución considerable de ataques que provienen de IPs con reputación media o alta.
 
 - **Conclusión:** La reputación de la IP es útil, pero no suficiente. Los atacantes sofisticados utilizan VPNs, proxies de pago o hosts de cloud limpios para lanzar ataques, eludiendo los bloqueos basados únicamente en la reputación IP. El modelo debe depender de indicadores de comportamiento (como failed_logins y session_duration) para detectar a estos atacantes "silenciosos".
-
----
-### Explicación de la estructura y diccionario de la base de datos
-## **Variables categóricas:**
-1.	**Encryption_used:**
-Indica el tipo de encriptación aplicado en la conexión. Sus categorías son:
--	AES: Estándar de cifrado avanzado, fuerte y ampliamente utilizado.
--	DES: Estándar antiguo de cifrado de datos.
--	Ninguna encriptación: No se usó ningún método de encriptación.
-2.	**Protocol_type:**
-Representa el protocolo utilizado en la comunicación:
--   TCP (Protocolo de Control de Transmisión).
--   UDP (Protocolo de Datagramas del Usuario).
--   ICMP (Protocolo de Mensajes de Control de Internet, usado en diagnósticos).
-3. **Browser_type:** Tipo de navegador utilizado por el usuario.
-4.	**Unusual_time_access:** Con registro binario que indica si inicio sesión fuera del horario normal.
-5. **Attack_detected:** Variable con clasificación binaria que determina si recibió un ataque o no.
-### **Variables númericas:**
--	**Asociadas al tráfico de red:**
- 6.	**Network_packet_size:** Tamaño de paquetes de bytes que oscila entre 64 y 1500 bytes.
--	**Asociadas al comportamiento del usuario:**
- 7.	**Login_attempts:** Intentos de inicio de sesión típicos de los usuarios
- 8.	**Session_duration:** Tiempo de sesión iniciada.
- 9.	**Failed_logins:** Número de inicios de sesión fallidos.
- 10.	**Ip_reputation_score:** Mide y clasifica la confiabilidad de la dirección IP.
-### **Otras**
-11. **Session_id:** Número de ID de la sesión del usuario.
-### **Nuevas variables**
-12. **Minutos_sesion:** Cantidad de minutos de sesión iniciada relacionado con **Sesion_duration**.
-13. **accesos_fallidos:** Mapeo especial creado a partir del **login_attempts**.
-14. **paquetes_bytes:** Mapeo especial creado a partir del **network_packet_size**.
-
----
-## Autores
-  
-- **Julian David Rodríguez Ramírez**
-- **Sara Gabriela Chisaba Cárdenas**
-- **Alejandra Cortes Murillo**
--
 
 ---
 
